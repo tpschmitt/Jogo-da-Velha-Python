@@ -28,8 +28,8 @@ def enter_move(board):
 		move = int(move) - 1 	# número de célula de 0 a 8
 		row = move // 3 	# linha da célula
 		col = move % 3		# coluna da célula
-		sign = board[row][col]	# verifica o quadrado selecionado
-		ok = sign not in ['O','X'] 
+		sgn = board[row][col]	# verifica o quadrado selecionado
+		ok = sgn not in ['O','X'] 
 		if not ok:	#está ocupado - para a entrada novamente
 			print("Campo já ocupado – repita sua entrada!")
 			continue
@@ -65,7 +65,7 @@ def victory_for(board, sgn):
 			return who
 		if board[rc][rc] != sgn: # verifica a 1ª diagonal
 			cross1 = False
-		if board[2 - rc][2 - rc] != sgn: # verifica a segunda diagonal
+		if board[rc][2 - rc] != sgn: # verifica a segunda diagonal
 			cross2 = False
 	if cross1 or cross2:
 		return who
@@ -108,3 +108,4 @@ elif victor == 'me':
 	print("I won")
 else:
 	print("Tie!")
+
