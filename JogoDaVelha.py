@@ -86,9 +86,9 @@ def draw_move(board):
 
 board = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']] #Define o tabuleiro com um X no meio.
 free = make_list_of_free_fields(board)
-human_turn = True #Que turno é agora?
+human_turn = False #Que turno é agora?
 while len(free):
-	if not human_turn:
+	if human_turn:
 		print('-='*12)
 		enter_move(board)
 		win = victory_for(board, 'O')
