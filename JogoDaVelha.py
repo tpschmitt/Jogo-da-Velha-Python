@@ -14,7 +14,7 @@ def display_board(board):
 
 def enter_move(board):
 # A função aceita o status atual do tabuleiro, pergunta ao usuário sobre sua jogada, 
-# verifica a entrada e atualiza o quadro de acordo com a decisão do usuário.
+# verifica a entrada é válida e atualiza o quadro de acordo com a decisão do usuário.
 
 	ok = False #Suposição falsa - precisamos dela para entrar no loop.
 	while not ok:
@@ -83,12 +83,12 @@ def draw_move(board):
 		board[row][col] = 'X'
 		print(f'Jogada da máquina: {jogada_pc}')
 
-board = [['1', '2', '3'], ['4', 'X', '6'], ['7', '8', '9']] #Define o tabuleiro com um X no meio.
+
+board = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']] #Define o tabuleiro com um X no meio.
 free = make_list_of_free_fields(board)
 human_turn = True #Que turno é agora?
-display_board(board)
 while len(free):
-	if human_turn:
+	if not human_turn:
 		print('-='*12)
 		enter_move(board)
 		win = victory_for(board, 'O')
